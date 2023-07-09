@@ -1,8 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [splitVendorChunkPlugin(), react()],
   base: 'https://kseniayurko.github.io/shri2023-task/',
+  build: {
+		outDir: "docs",
+	},
 })
